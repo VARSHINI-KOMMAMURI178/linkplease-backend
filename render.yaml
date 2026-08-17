@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: linkplease
+    env: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PSEUDOGRAM_API_KEY
+        sync: false
+      - key: PSEUDOGRAM_BASE_URL
+        value: https://pseudogram-api.onrender.com
+      - key: DB_PATH
+        value: /data/linkplease.db
+    disk:
+      name: linkplease-data
+      mountPath: /data
+      sizeGB: 1
